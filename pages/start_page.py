@@ -4,7 +4,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 
-class BasePage:
+from Sprint_6.pages.base_page import BasePage
+
+
+class StartPage(BasePage):
+
+    def __init__(self, driver):
+        self.driver = driver
+        self.wait = WebDriverWait(driver, 10)
 
     # кнопка "Заказать" в середине страницы
     order_button_middle_position = (By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
@@ -25,33 +32,32 @@ class BasePage:
     # кнопка "Я жизу за МКАДом, привезёте?"
     button_info_areal_scooter_arend = (By.XPATH, ".//div[@id='accordion__heading-7']")
 
-    def __init__(self, driver):
-        self.driver = webdriver.Chrome()
+
 
     def click_on_order_button_middle_position(self):
-        self.driver.find_element(*self.order_button_middle_position).click()
+        self.click(self.order_button_middle_position)
 
     def click_on_button_how_much_does_it_cost_and_how_to_pay(self):
-        self.driver.find_element(*self.button_how_much_does_it_cost_and_how_to_pay).click()
+        self.click(self.button_how_much_does_it_cost_and_how_to_pay)
 
     def click_on_button_arend_several_scooters(self):
-        self.driver.find_element(*self.button_arend_several_scooters).click()
+        self.click(self.button_arend_several_scooters)
 
     def click_on_button_calculate_arend_time(self):
-        self.driver.find_element(*self.button_calculate_arend_time).click()
+        self.click(self.button_calculate_arend_time)
 
     def click_on_button_order_a_scooter_today(self):
-        self.driver.find_element(*self.button_order_a_scooter_today).click()
+        self.click(self.button_order_a_scooter_today)
 
     def click_on_button_possible_to_extend_the_order_or_return_the_scooter_earlier(self):
-        self.driver.find_element(*self.button_possible_to_extend_the_order_or_return_the_scooter_earlier).click()
+        self.click(self.button_possible_to_extend_the_order_or_return_the_scooter_earlier)
 
     def click_on_button_bring_the_charger_with_scooter(self):
-        self.driver.find_element(*self.button_bring_the_charger_with_scooter).click()
+        self.click(*self.button_bring_the_charger_with_scooter)
 
     def click_on_button_cancel_the_order(self):
-        self.driver.find_element(*self.button_cancel_the_order).click()
+        self.click(self.button_cancel_the_order)
 
     def click_on_button_info_areal_scooter_arend(self):
-        self.driver.find_element(*self.button_info_areal_scooter_arend).click()
+        self.click(self.button_info_areal_scooter_arend)
 

@@ -38,3 +38,33 @@ class ScooterArendaData(BasePage):
     button_view_the_status = (By.XPATH, ".//button[contains(text(),'Посмотреть статус')]")
     # Поле с номером заказа (например 166020)
     number_order_button = (By.XPATH, ".//input[@class='Input_Input__1iN_Z Track_Input__1g7lq Input_Filled__1rDxs Input_Responsible__1jDKN']")
+
+    def choose_date_bring_the_scooter(self):
+        self.click(self.date_bring_the_scooter_field)
+        self.click(self.date_buttons)
+
+    def choose_rental_period_arend_scooter(self):
+        self.click(self.rental_period_field)
+        self.click(self.rental_period_date_buttons)
+
+    def choose_black_color_scooter(self):
+        self.click(self.black_color_scooter)
+
+    def choose_gray_color_scooter(self):
+        self.click(self.gray_color_scooter)
+
+    def comment_for_courier(self,comment):
+        self.send_keys(self.comment_for_courier_field, comment)
+
+    def accept_order_scooter(self):
+        self.click(self.accept_order_scooter_button)
+
+    def confirm_accept_order_scooter(self):
+        self.click(self.confirm_accept_order_scooter_button)
+
+    def get_number_order_scooter(self):
+        return self.find_element(self.window_information_about_order).text
+
+    def get_order_status(self):
+        self.click(self.button_view_the_status)
+
