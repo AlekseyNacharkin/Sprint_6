@@ -20,7 +20,7 @@ class User_Data(BasePage):
     adres_field = (By.CSS_SELECTOR, "input[placeholder='* Адрес: куда привезти заказ']")
     # список "Станция метро"
     metro_station_field = (By.CSS_SELECTOR, "input[placeholder='* Станция метро']")
-    station_locator = (By.XPATH, f".//div[@class='Order_Text__2broi' and contains(text(),'{station_name}')]/parent::button")
+    #station_locator = (By.XPATH, f".//div[@class='Order_Text__2broi' and contains(text(),'{station_name}')]/parent::button")
     metro_station = (By.XPATH, ".//div[@class='Order_Text__2broi' and contains(text(),'Сокольники')]/parent::button")
     # поле "Телефон: на него позвонит курьер"
     phone_number_field = (By.CSS_SELECTOR, "input[placeholder='* Телефон: на него позвонит курьер']")
@@ -29,19 +29,15 @@ class User_Data(BasePage):
 
 
     def send_keys_to_name_field(self, name):
-        self.find_element(self.name_field)
         self.send_keys(self.name_field, name)
 
     def send_keys_to_surname_field(self, surname):
-        self.find_element(self.surname_field)
         self.send_keys(self.surname_field, surname)
 
     def send_keys_to_adres_field(self, adres):
-        self.find_element(self.adres_field)
         self.send_keys(self.adres_field, adres)
 
     def send_keys_to_phone_number_field(self, phone_number):
-        self.find_element(self.phone_number_field)
         self.send_keys(self.phone_number_field, phone_number)
 
 
@@ -60,4 +56,3 @@ class User_Data(BasePage):
 
     def click_on_accept_user_data_button(self):
         self.click(self.accept_user_data_button)
-    

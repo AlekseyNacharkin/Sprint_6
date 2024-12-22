@@ -21,7 +21,16 @@ def test_click_on_order_button_top_position(driver):
     base_ribbon.click_on_order_button_top_position()
 
 def test_choose_metro_station_q(driver):
-    order_scooter_page = User_Data(driver)
+    user_data = User_Data(driver)
     driver.get(User_Data.order_url)
-    order_scooter_page.choose_metro_station_q()
+    user_data.send_keys_to_name_field("Алексей")
+    user_data.send_keys_to_surname_field("Начаркин")
+    user_data.send_keys_to_adres_field("дом у")
+    user_data.send_keys_to_phone_number_field("888888888888")
+    #time.sleep(2)
+    user_data.choose_metro_station()
+    user_data.click_on_accept_user_data_button()
     time.sleep(2)
+
+def test_choose_date_bring_the_scooter(driver):
+    scooter_arenda_data = ScooterArendaData(driver)
