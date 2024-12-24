@@ -7,13 +7,9 @@ from selenium import webdriver
 import pytest
 from selenium import webdriver
 from Sprint_6.pages.base_ribbon import BaseRibbon
-from Sprint_6.pages.user_data_page import User_Data
+from Sprint_6.pages.user_data_page import UserData
 
-@pytest.fixture
-def driver():
-    driver = webdriver.Chrome()
-    yield driver
-    driver.quit()
+
 
 def test_click_on_order_button_top_position(driver):
     base_ribbon = BaseRibbon(driver)
@@ -21,8 +17,8 @@ def test_click_on_order_button_top_position(driver):
     base_ribbon.click_on_order_button_top_position()
 
 def test_choose_metro_station_q(driver):
-    user_data = User_Data(driver)
-    driver.get(User_Data.order_url)
+    user_data = UserData(driver)
+    driver.get(UserData.order_url)
     user_data.send_keys_to_name_field("Алексей")
     user_data.send_keys_to_surname_field("Начаркин")
     user_data.send_keys_to_adres_field("дом у")
@@ -32,5 +28,4 @@ def test_choose_metro_station_q(driver):
     user_data.click_on_accept_user_data_button()
     time.sleep(2)
 
-def test_choose_date_bring_the_scooter(driver):
-    scooter_arenda_data = ScooterArendaData(driver)
+

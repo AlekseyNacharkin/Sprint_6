@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -44,8 +46,8 @@ class ScooterArendaData(BasePage):
         self.click(self.date_buttons)
 
     def choose_rental_period_arend_scooter(self):
-        self.click(self.rental_period_field)
-        self.click(self.rental_period_date_buttons)
+        self.click_on_scrollbar(self.rental_period_field)
+        self.click_on_scrollbar(self.rental_period_date_buttons)
 
     def choose_black_color_scooter(self):
         self.click(self.black_color_scooter)
@@ -57,14 +59,25 @@ class ScooterArendaData(BasePage):
         self.send_keys(self.comment_for_courier_field, comment)
 
     def accept_order_scooter(self):
+        self.visibility_element(self.accept_order_scooter_button)
         self.click(self.accept_order_scooter_button)
 
     def confirm_accept_order_scooter(self):
-        self.click(self.confirm_accept_order_scooter_button)
+        self.visibility_element(self.confirm_accept_order_scooter_button)
+        self.click_on_scrollbar(self.confirm_accept_order_scooter_button)
 
     def get_number_order_scooter(self):
         return self.find_element(self.window_information_about_order).text
 
     def get_order_status(self):
+        self.visibility_element(self.button_view_the_status)
         self.click(self.button_view_the_status)
 
+    def filling_arend_date_fields(self,comment):
+        self.choose_date_bring_the_scooter()
+        self.choose_rental_period_arend_scooter()
+        self.choose_gray_color_scooter()
+        self.comment_for_courier(comment)
+        self.accept_order_scooter()
+        self.confirm_accept_order_scooter()
+        self.get_order_status()
