@@ -39,3 +39,12 @@ class BasePage:
         element = self.find_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth'});", element)
         element.click()
+
+    def switch_to_new_tab(self,index = 1):
+        self.driver.switch_to.window(self.driver.window_handles[index])
+
+    def waiting_load_url(self,url):
+        self.wait.until(EC.url_to_be(url))
+
+    def scroll_to_down(self,position = 2500):
+        self.driver.execute_script(f"window.scrollTo(0, {position})")

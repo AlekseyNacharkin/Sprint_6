@@ -5,7 +5,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-from Sprint_6.pages.base_page import BasePage
+
+from pages.base_page import BasePage
+
 
 class ScooterArendaData(BasePage):
 
@@ -80,4 +82,4 @@ class ScooterArendaData(BasePage):
         self.comment_for_courier(comment)
         self.accept_order_scooter()
         self.confirm_accept_order_scooter()
-        self.get_order_status()
+        #self.get_order_status()

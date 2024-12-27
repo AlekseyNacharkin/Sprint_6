@@ -6,8 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 import pytest
 from selenium import webdriver
-from Sprint_6.pages.base_ribbon import BaseRibbon
-from Sprint_6.pages.user_data_page import UserData
+
 
 @pytest.fixture
 def driver():

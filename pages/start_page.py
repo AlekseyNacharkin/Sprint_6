@@ -4,7 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 
-from Sprint_6.pages.base_page import BasePage
+from pages.base_page import BasePage
+
 
 
 class StartPage(BasePage):
@@ -15,7 +16,7 @@ class StartPage(BasePage):
 
     base_url = "https://qa-scooter.praktikum-services.ru/"
     # кнопка "Заказать" в середине страницы
-    order_button_middle_position = (By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
+    order_button_middle_position = (By.XPATH, ".//button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']")
     # кнопка "Сколько это стоит? И как оплатить?"
     button_how_much_does_it_cost_and_how_to_pay = (By.XPATH, ".//div[@id='accordion__heading-0']")
     # Текст псле нажатия на кнопку "Сколько это стоит? И как оплатить?"
@@ -55,7 +56,7 @@ class StartPage(BasePage):
         self.get_url_page(self.base_url)
 
     def click_on_order_button_middle_position(self):
-        self.click(self.order_button_middle_position)
+        self.click_on_scrollbar(self.order_button_middle_position)
 
     def click_on_button_how_much_does_it_cost_and_how_to_pay(self):
         self.click(self.button_how_much_does_it_cost_and_how_to_pay)
